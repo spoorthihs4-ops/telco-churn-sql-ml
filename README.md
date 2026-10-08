@@ -23,7 +23,7 @@ An end-to-end churn workflow for **7,043 telecom customers**: a normalised **SQL
 
 ## Methodology
 
-![Methodology flowchart](reports/figures/methodology_flowchart.png)
+![Methodology flowchart](methodology_flowchart.png)
 
 **[Explore the interactive methodology](https://spoorthihs4-ops.github.io/telco-churn-sql-ml/)** – click any stage to see what it does, why it matters, the result it produced and the techniques behind it.
 
@@ -80,11 +80,11 @@ The three models are practically tied. All were tuned for F1 with class balancin
 | Month-to-month, fibre optic | 55 % |
 
 <p align="center">
-  <img src="reports/figures/churn_by_segment.png" width="49%" alt="Churn by segment">
-  <img src="reports/figures/model_comparison.png" width="49%" alt="Model comparison">
+  <img src="churn_by_segment.png" width="49%" alt="Churn by segment">
+  <img src="model_comparison.png" width="49%" alt="Model comparison">
 </p>
 <p align="center">
-  <img src="reports/figures/feature_importance.png" width="80%" alt="Feature importance">
+  <img src="feature_importance.png" width="80%" alt="Feature importance">
 </p>
 
 ### Retention recommendations
@@ -98,18 +98,18 @@ The three models are practically tied. All were tuned for F1 with class balancin
 
 | Notebook | Contents |
 |---|---|
-| [`00_full_pipeline_run_all`](notebooks/00_full_pipeline_run_all.ipynb) | **Everything, top to bottom - run this to reproduce** |
-| [`01_data_and_sql_pipeline`](notebooks/01_data_and_sql_pipeline.ipynb) | Data loading, SQLite schema, data import, four analytical SQL queries |
-| [`02_preprocessing_study`](notebooks/02_preprocessing_study.ipynb) | Data quality, imputation, outliers, scaling, power transforms, VIF and PCA |
-| [`03_feature_engineering_and_eda`](notebooks/03_feature_engineering_and_eda.ipynb) | Encoding, engineered features, univariate, correlation and segment analysis |
-| [`04_modelling_evaluation_insights`](notebooks/04_modelling_evaluation_insights.ipynb) | Split and SMOTE, tuned models, comparison, feature importance, business insights |
+| [`00_full_pipeline_run_all`](00_full_pipeline_run_all.ipynb) | **Everything, top to bottom - run this to reproduce** |
+| [`01_data_and_sql_pipeline`](01_data_and_sql_pipeline.ipynb) | Data loading, SQLite schema, data import, four analytical SQL queries |
+| [`02_preprocessing_study`](02_preprocessing_study.ipynb) | Data quality, imputation, outliers, scaling, power transforms, VIF and PCA |
+| [`03_feature_engineering_and_eda`](03_feature_engineering_and_eda.ipynb) | Encoding, engineered features, univariate, correlation and segment analysis |
+| [`04_modelling_evaluation_insights`](04_modelling_evaluation_insights.ipynb) | Split and SMOTE, tuned models, comparison, feature importance, business insights |
 
-The schema and queries are also available as plain SQL in [`sql/telco_churn.sql`](sql/telco_churn.sql).
+The schema and queries are also available as plain SQL in [`telco_churn.sql`](telco_churn.sql).
 
 ## Reproduce
 
 1. Download the [IBM Telco Customer Churn dataset](https://www.kaggle.com/blastchar/telco-customer-churn) as `Telcochurn.csv`.
-2. Open [`00_full_pipeline_run_all.ipynb`](notebooks/00_full_pipeline_run_all.ipynb) in **Google Colab** and upload the CSV when prompted.
+2. Open [`00_full_pipeline_run_all.ipynb`](00_full_pipeline_run_all.ipynb) in **Google Colab** and upload the CSV when prompted.
 3. **Run All.** The whole notebook runs in a few minutes on a standard CPU runtime.
 
 ## Limitations and next steps
@@ -120,15 +120,14 @@ The schema and queries are also available as plain SQL in [`sql/telco_churn.sql`
 
 ## Repository structure
 
-```
-telco-churn-sql-ml/
-├── notebooks/            # 00 full pipeline + 01-04 part notebooks (with outputs)
-├── sql/telco_churn.sql   # schema and analytical queries
-├── reports/figures/      # methodology flowchart and result charts
-├── docs/index.html       # interactive methodology (GitHub Pages)
-├── requirements.txt
-└── README.md
-```
+All files sit in the repository root so they upload and display correctly:
+
+- `00_full_pipeline_run_all.ipynb` – the complete pipeline (run this to reproduce)
+- `01_…` onwards – part notebooks with executed outputs
+- `methodology_flowchart.png` and the result charts shown above
+- `index.html` – interactive methodology page (GitHub Pages)
+- `requirements.txt`, `.gitignore`
+- `telco_churn.sql` – schema and analytical queries
 
 ## Author
 
